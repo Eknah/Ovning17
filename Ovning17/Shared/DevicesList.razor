@@ -1,0 +1,58 @@
+﻿@using Ovnign17.Shared
+
+
+<div class="container bg-light shadow-sm">
+    <ul id="toDoItems" class="list-group align-self-sm-stretch mt-4">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">DeviceId</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var device in DeviceItems)
+                {
+
+                    <tr>
+                        <td>@device.Id</td>
+                        <td>@device.Name</td>
+                        <td>@device.Location.Name<br/>@device.Location.Country</td>
+                        <td>@device.LastUpdated.ToString("dd/MM/yyyy")</td>
+                        <td>@device.Type.Name<br/>@device.Type.Description</td>
+                        <td>@(device.IsOnline ? "Online" : "Offline")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </ul>
+</div>
+
+
+@code {
+
+    [Parameter]
+    public IEnumerable<Device> DeviceItems { get; set; } = new List<Device>();
+
+    //private void ItemCompleted(Item item)
+    //{
+    //    item.Completed = item.Completed ? false : true;
+
+    //    //ToDo call api
+    //    //Act on success
+    //}
+
+    //private void Remove(Item item)
+    //{
+
+    //    //ToDo call api
+    //    ToDoItems.Remove(item);
+    //}
+
+}

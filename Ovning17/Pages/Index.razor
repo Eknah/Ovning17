@@ -1,9 +1,19 @@
 ﻿@page "/"
+@using Ovnign17.Shared
+@using Ovning17.Services
 
-<PageTitle>Index</PageTitle>
+<h3>List of Devices</h3>
 
-<h1>Hello, world!</h1>
+<DevicesList DeviceItems="items"></DevicesList>
 
-Welcome to your new app.
+@code {
+    private IEnumerable<Device> items = new List<Device>();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    [Inject]
+    public IDevicesClient DevicesClient { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await DevicesClient.GetAsync();
+    }
+}
