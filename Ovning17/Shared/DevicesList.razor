@@ -1,10 +1,57 @@
 ﻿@using Ovnign17.Shared
 
 
-<div class="container-fluid bg-white shadow-sm">
+<div class="bg-white shadow-sm">
     <h3>List of Devices</h3>
 
-        <table class="table">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                DeviceId
+            </div>
+            <div class="col-sm">
+                Name
+            </div>
+            <div class="col-sm">
+                Location
+            </div>
+            <div class="col-sm">
+                Date
+            </div>
+            <div class="col-sm">
+                Type
+            </div>
+            <div class="col-sm">
+                Status
+            </div>
+        </div>
+
+
+
+
+        @foreach (var device in DeviceItems)
+        {
+
+            <div class="row">
+                <div class="col-3">@device.Id</div>
+                <div class="col-sm">@device.Name</div>
+                <div class="col-sm">@device.Location.Name<br />@device.Location.Country</div>
+                <div class="col-sm">@device.LastUpdated.ToString("dd/MM/yyyy")</div>
+                <div class="col-sm">@device.Type.Name<br />@device.Type.Description</div>
+                <div class="col-sm">@(device.IsOnline ? "Online" : "Offline")</div>
+            </div>
+        }
+
+
+
+
+
+
+    </div>
+
+
+
+@*        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">DeviceId</th>
@@ -30,7 +77,7 @@
                     </tr>
                 }
             </tbody>
-        </table>
+        </table>*@
 </div>
 
 

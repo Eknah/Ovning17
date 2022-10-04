@@ -1,14 +1,23 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        @*<NavMenu />*@
-        <MachineParkStatistics />
+    <h1>Dashboard</h1>
+    <p>Overview of your internet of things</p>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <MachineParkStatistics />
+            </div>
+            <div class="col-10">
+                <main>
+                    <article>
+                        @Body
+                    </article>
+                </main>
+            </div>
+        </div>
     </div>
 
-    <main>
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+
 </div>
