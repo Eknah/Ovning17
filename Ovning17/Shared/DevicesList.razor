@@ -1,6 +1,5 @@
 ﻿@using Ovnign17.Shared
 
-
 <div class="bg-white shadow-sm p-3">
     <h3>List of Devices</h3>
 
@@ -26,14 +25,11 @@
             </div>
         </div>
 
-
-
-
         @foreach (var device in DeviceItems)
         {
 
             <div class="row">
-                <div class="col-3">@device.Id</div>
+                <div class="col-3"><span class="forceWrap">@device.Id</span></div>
                 <div class="col-sm">@device.Name</div>
                 <div class="col-sm">@device.Location.Name<br />@device.Location.Country</div>
                 <div class="col-sm">@device.LastUpdated.ToString("dd/MM/yyyy")</div>
@@ -79,6 +75,7 @@
             </tbody>
         </table>*@
 </div>
+
 
 
 @code {
