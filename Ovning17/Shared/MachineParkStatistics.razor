@@ -1,15 +1,23 @@
-﻿
+﻿@using Ovning17.Services
+
 
 <div class="top-row ps-3 bg-white shadow-sm">
     <div class="container-fluid">
         <h3>Daily Stats</h3>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+        <p>Total Devices: @DevicesCount</p>
     </div>
 </div>
 
 @code {
 
+    [Inject]
+    public IDevicesClient DevicesClient { get; set; } = default!;
+
+    [Parameter]
+    public int DevicesCount { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        DevicesCount = (await DevicesClient.GetAsync()).Count();
+    }
 }
