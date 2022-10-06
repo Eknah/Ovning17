@@ -1,5 +1,9 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+#app {
+    background-color: lightblue;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

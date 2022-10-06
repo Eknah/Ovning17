@@ -12,4 +12,3 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddHttpClient<IDevicesClient, DevicesClient>(client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 
 await builder.Build().RunAsync();
-//Test
