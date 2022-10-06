@@ -1,17 +1,13 @@
 ﻿@page "/"
-@using Ovnign17.Shared
-@using Ovning17.Services
+@inject CurrentPage currentPage
 
-<DevicesList DeviceItems="items"></DevicesList>
+<h4>Management System for a fictional machine park.</h4>
 
 @code {
-    private IEnumerable<Device> items = new List<Device>();
-
-    [Inject]
-    public IDevicesClient DevicesClient { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        items = await DevicesClient.GetAsync();
+        currentPage.SetCurrentPageName("Home");
+        currentPage.SetCurrentPageDescription("Welcome");
     }
 }
