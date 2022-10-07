@@ -1,4 +1,5 @@
 ﻿using Ovnign17.Shared;
+using System.Net.Http.Json;
 
 namespace Ovning17.Services
 {
@@ -52,7 +53,8 @@ namespace Ovning17.Services
 
         public async Task<IEnumerable<Device>> GetAsync()
         {
-            return devices;
+            return await httpClient.GetFromJsonAsync<IEnumerable<Device>>("api/Function1");
+            //return devices;
         }
     }
 }

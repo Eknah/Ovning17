@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 
 namespace Ovning17.Server
 {
-    public static class Function1
+    public static class MachineParkAPI
     {
-        [FunctionName("Function1")]
+        [FunctionName("Devices")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
