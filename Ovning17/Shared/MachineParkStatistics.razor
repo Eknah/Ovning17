@@ -3,8 +3,12 @@
 
 <div class="top-row ps-3 bg-white shadow-sm">
     <div class="container-fluid">
-        <h3>Daily Stats</h3>
-        <p>Total Devices: @DevicesCount</p>
+        <h5>Daily Stats</h5>
+        <ul>
+           
+         <li>Total Devices: @DevicesCount</li>
+            <li>Online Devices: @OnlineDevicesCount</li>
+        </ul>
     </div>
 </div>
 
@@ -16,8 +20,13 @@
     [Parameter]
     public int DevicesCount { get; set; }
 
+    [Parameter]
+    public int OnlineDevicesCount { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        DevicesCount = (await DevicesClient.GetAsync()).Count();
+        var devices = await DevicesClient.GetAsync();
+        DevicesCount = devices.Count();
+        OnlineDevicesCount = devices.Count(d => d.IsOnline == true);
     }
 }

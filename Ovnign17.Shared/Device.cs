@@ -1,4 +1,6 @@
-﻿namespace Ovnign17.Shared
+﻿using System.ComponentModel;
+
+namespace Ovnign17.Shared
 {
     public class Device
     {

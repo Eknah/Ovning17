@@ -1,12 +1,12 @@
 ﻿@using Ovnign17.Shared
 
 <div class="bg-white shadow-sm p-3">
-    <h3>List of Devices</h3>
+    <h5>Devices</h5>
 
     <div class="container-fluid">
         <div class="row fw-bold">
             <div class="col-3">
-                DeviceId
+                Device Id
             </div>
             <div class="col-sm">
                 Name
@@ -34,7 +34,17 @@
                 <div class="col-sm">@device.Location.Name<br />@device.Location.Country</div>
                 <div class="col-sm">@device.LastUpdated.ToString("dd/MM/yyyy")</div>
                 <div class="col-sm">@device.Type.Name<br />@device.Type.Description</div>
-                <div class="col-sm">@(device.IsOnline ? "Online" : "Offline")</div>
+                <div class="col-sm">
+                    @if (device.IsOnline) {
+
+                        <span class="text-success">Online</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Offline</span>
+                    }
+                    </div>
+
             </div>
         }
 

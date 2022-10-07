@@ -5,19 +5,10 @@ namespace Ovning17.Services
     public class DevicesClient : IDevicesClient
     {
         private readonly HttpClient httpClient;
-
-        public DevicesClient(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-            // this.httpClient.BaseAddress
-        }
-
-        public async Task<IEnumerable<Device>> GetAsync()
-        {
-            Location location = new() { Name = "Vega", Country = "Sweden" };
-            DeviceType type = new() { Name = "Weather Sensor", Description = "temperature, humidity" };
-
-            return new List<Device>()
+        
+        private static Location location = new() { Name = "Vega", Country = "Sweden" };
+        private static DeviceType type = new() { Name = "Weather Sensor", Description = "temperature, humidity" };
+        private static IEnumerable<Device> devices = new List<Device>()
             {
                 new Device()
                 {
@@ -52,6 +43,16 @@ namespace Ovning17.Services
                     IsOnline = Random.Shared.Next(2) == 0 ? true : false
                 }
             };
+
+        public DevicesClient(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+            // this.httpClient.BaseAddress
+        }
+
+        public async Task<IEnumerable<Device>> GetAsync()
+        {
+            return devices;
         }
     }
 }
