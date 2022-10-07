@@ -53,7 +53,7 @@ namespace Ovning17.Services
 
         public async Task<IEnumerable<Device>> GetAsync()
         {
-            return await httpClient.GetFromJsonAsync<IEnumerable<Device>>("api/Function1");
+            return await httpClient.GetFromJsonAsync<IEnumerable<Device>>("api/devices");
             //return devices;
         }
     }
